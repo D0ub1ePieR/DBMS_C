@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-06-10T00:49:23
+# Project created by QtCreator 2018-06-10T01:54:14
 #
 #-------------------------------------------------
 
@@ -32,3 +32,6 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui
+
+RESOURCES += \
+    imagefile.qrc

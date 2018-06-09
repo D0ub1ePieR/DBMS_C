@@ -1,2 +1,6 @@
-<!DOCTYPE RCC>
-<RCC version="1.0"/>
+<RCC>
+    <qresource prefix="/">
+        <file>image/header.ico</file>
+        <file>image/ball.ico</file>
+    </qresource>
+</RCC>
