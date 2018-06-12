@@ -15,6 +15,9 @@ public:
     explicit dbmsmain(QWidget *parent = 0);
     ~dbmsmain();
 
+private slots:
+	void getindex();
+
 private:
     Ui::dbmsmain *ui;
 };

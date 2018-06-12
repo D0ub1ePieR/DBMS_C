@@ -25,13 +25,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    dbmsmain.cpp \
+    stuinfo.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    dbmsmain.h \
+    stuinfo.h
 
 FORMS += \
-        mainwindow.ui
+    mainwindow.ui \
+    dbmsmain.ui \
+    stuinfo.ui
 
 RESOURCES += \
     imagefile.qrc

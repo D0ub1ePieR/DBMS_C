@@ -8,6 +8,11 @@ dbmsmain::dbmsmain(QWidget *parent) :
     ui->setupUi(this);
 }
 
+void dbmsmain::getindex()
+{
+	this->show();
+}
+
 dbmsmain::~dbmsmain()
 {
     delete ui;
