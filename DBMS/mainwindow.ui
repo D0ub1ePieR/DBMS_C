@@ -67,7 +67,7 @@ margin: 0 auto;</string>
      <string>Designed by D0ub1e_PieR</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QComboBox" name="source">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -75,6 +75,9 @@ margin: 0 auto;</string>
       <width>251</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="editable">
+     <bool>true</bool>
     </property>
     <item>
      <property name="text">
@@ -116,6 +119,11 @@ margin: 0 auto;</string>
      <string>连 接</string>
     </property>
    </widget>
+   <zorder>source</zorder>
+   <zorder>logo</zorder>
+   <zorder>title</zorder>
+   <zorder>label</zorder>
+   <zorder>connect</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -134,7 +142,6 @@ margin: 0 auto;</string>
    </widget>
    <addaction name="menu"/>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -144,6 +151,7 @@ margin: 0 auto;</string>
    </attribute>
    <addaction name="separator"/>
   </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <action name="action">
    <property name="text">
     <string>退出</string>
