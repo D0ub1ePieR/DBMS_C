@@ -19,8 +19,10 @@ private slots:
 	void getindex();		//接收初始页面信号
 	void on_info_clicked();
 	void on_grade_clicked();
+	void on_choose_clicked();
 	void get_info();		//接收学生信息查询返回信号
 	void get_grade();		//接收学生课程查询返回信号
+	void get_choose();		//接收选课返回信号
 
 signals:
 	void goto_stuinfo();	//跳转学生信息查询信号

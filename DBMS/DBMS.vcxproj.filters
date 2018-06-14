@@ -96,6 +96,15 @@
     <ClCompile Include="GeneratedFiles\Release\moc_stuclass.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="choose.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_choose.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_choose.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="debug\moc_predefs.h.cbt">
@@ -123,6 +132,12 @@
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="stuclass.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="choose.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="choose.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
   </ItemGroup>
@@ -176,6 +191,9 @@
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_stuclass.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_choose.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -29,6 +29,19 @@ void dbmsmain::on_grade_clicked()
 	emit goto_stuclass();
 }
 
+//跳转至选课页面
+void dbmsmain::on_choose_clicked()
+{
+	this->close();
+	emit goto_stuchoose();
+}
+
+//接收选课返回信号
+void dbmsmain::get_choose()
+{
+	this->show();
+}
+
 //接收学生课程查询返回额信号
 void dbmsmain::get_grade()
 {
