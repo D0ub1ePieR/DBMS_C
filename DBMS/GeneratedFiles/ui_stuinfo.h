@@ -34,14 +34,15 @@ public:
     QLineEdit *number;
     QLineEdit *name;
     QLineEdit *dept;
+    QCheckBox *man;
+    QCheckBox *woman;
     QFrame *line_2;
     QLabel *label_7;
     QTableView *showtable;
     QLabel *label_8;
     QPushButton *query;
     QPushButton *back;
-    QCheckBox *man;
-    QCheckBox *woman;
+    QLabel *label_5;
 
     void setupUi(QDialog *stuinfo)
     {
@@ -88,6 +89,12 @@ public:
         dept->setObjectName(QStringLiteral("dept"));
         dept->setGeometry(QRect(460, 80, 181, 21));
         dept->setStyleSheet(QStringLiteral("background-color: rgb(253, 253, 253);"));
+        man = new QCheckBox(stuinfo);
+        man->setObjectName(QStringLiteral("man"));
+        man->setGeometry(QRect(100, 160, 51, 19));
+        woman = new QCheckBox(stuinfo);
+        woman->setObjectName(QStringLiteral("woman"));
+        woman->setGeometry(QRect(160, 160, 41, 19));
         line_2 = new QFrame(stuinfo);
         line_2->setObjectName(QStringLiteral("line_2"));
         line_2->setGeometry(QRect(10, 190, 711, 16));
@@ -112,12 +119,11 @@ public:
         back = new QPushButton(stuinfo);
         back->setObjectName(QStringLiteral("back"));
         back->setGeometry(QRect(620, 10, 93, 28));
-        man = new QCheckBox(stuinfo);
-        man->setObjectName(QStringLiteral("man"));
-        man->setGeometry(QRect(90, 160, 41, 19));
-        woman = new QCheckBox(stuinfo);
-        woman->setObjectName(QStringLiteral("woman"));
-        woman->setGeometry(QRect(150, 160, 51, 19));
+        label_5 = new QLabel(stuinfo);
+        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setGeometry(QRect(310, 10, 301, 31));
+        label_5->setStyleSheet(QString::fromUtf8("font: 18pt \"\351\232\266\344\271\246\";\n"
+"color: rgb(255, 125, 65);"));
 
         retranslateUi(stuinfo);
 
@@ -132,12 +138,13 @@ public:
         label_3->setText(QApplication::translate("stuinfo", "\345\247\223\345\220\215", nullptr));
         label_4->setText(QApplication::translate("stuinfo", "\346\200\247\345\210\253", nullptr));
         label_6->setText(QApplication::translate("stuinfo", "\351\231\242\347\263\273", nullptr));
+        man->setText(QApplication::translate("stuinfo", "\347\224\267", nullptr));
+        woman->setText(QApplication::translate("stuinfo", "\345\245\263", nullptr));
         label_7->setText(QApplication::translate("stuinfo", "*\344\273\245\344\270\212\351\200\211\351\241\271\345\235\207\351\235\236\345\277\205\351\241\273", nullptr));
         label_8->setText(QString());
         query->setText(QApplication::translate("stuinfo", "\345\274\200\345\247\213\346\237\245\350\257\242", nullptr));
         back->setText(QApplication::translate("stuinfo", "\350\277\224\345\233\236", nullptr));
-        man->setText(QApplication::translate("stuinfo", "\347\224\267", nullptr));
-        woman->setText(QApplication::translate("stuinfo", "\345\245\263", nullptr));
+        label_5->setText(QApplication::translate("stuinfo", "\346\262\241\346\234\211\347\276\216\345\267\245\357\274\214\345\217\252\346\203\263\350\267\263\346\262\263", nullptr));
     } // retranslateUi
 
 };

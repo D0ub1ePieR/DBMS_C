@@ -2,6 +2,10 @@
 #define STUINFO_H
 
 #include <QDialog>
+#include<mysql.h>
+#include<iostream>
+#include<string>
+using namespace std;
 
 namespace Ui {
 class stuinfo;
@@ -25,6 +29,7 @@ signals:
 
 private:
     Ui::stuinfo *ui;
+	MYSQL db;
 };
 
 #endif // STUINFO_H

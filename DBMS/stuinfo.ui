@@ -263,6 +263,23 @@
     <string>返回</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>10</y>
+     <width>301</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 18pt &quot;隶书&quot;;
+color: rgb(255, 125, 65);</string>
+   </property>
+   <property name="text">
+    <string>没有美工，只想跳河</string>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="imagefile.qrc"/>
