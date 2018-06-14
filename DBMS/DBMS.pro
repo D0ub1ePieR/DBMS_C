@@ -29,21 +29,24 @@ SOURCES += \
     dbmsmain.cpp \
     stuinfo.cpp \
     stuclass.cpp \
-    choose.cpp
+    choose.cpp \
+    inputnum.cpp
 
 HEADERS += \
         mainwindow.h \
     dbmsmain.h \
     stuinfo.h \
     stuclass.h \
-    choose.h
+    choose.h \
+    inputnum.h
 
 FORMS += \
     mainwindow.ui \
     dbmsmain.ui \
     stuinfo.ui \
     stuclass.ui \
-    choose.ui
+    choose.ui \
+    inputnum.ui
 
 RESOURCES += \
     imagefile.qrc

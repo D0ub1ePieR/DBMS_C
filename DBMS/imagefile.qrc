@@ -8,5 +8,7 @@
         <file>image/curriculum_128px_1206171_easyicon.net.ico</file>
         <file>image/infomation_128px_526982_easyicon.net.ico</file>
         <file>image/棒棒糖.ico</file>
+        <file>image/left.ico</file>
+        <file>image/right.ico</file>
     </qresource>
 </RCC>

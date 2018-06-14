@@ -105,6 +105,15 @@
     <ClCompile Include="GeneratedFiles\Release\moc_choose.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="inputnum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_inputnum.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_inputnum.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="debug\moc_predefs.h.cbt">
@@ -138,6 +147,12 @@
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="choose.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="inputnum.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="inputnum.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
   </ItemGroup>
@@ -179,6 +194,12 @@
     <Image Include="image\棒棒糖.ico">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="image\left.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="image\right.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
@@ -194,6 +215,9 @@
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_choose.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_inputnum.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
