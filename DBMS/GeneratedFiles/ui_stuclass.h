@@ -30,7 +30,7 @@ public:
     QLabel *label_2;
     QLineEdit *number;
     QLabel *label_3;
-    QComboBox *class_2;
+    QComboBox *choice;
     QPushButton *back;
     QPushButton *query;
     QFrame *line_2;
@@ -61,11 +61,11 @@ public:
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setGeometry(QRect(30, 160, 41, 21));
         label_3->setStyleSheet(QStringLiteral("font: 10pt \"Agency FB\";"));
-        class_2 = new QComboBox(stuclass);
-        class_2->addItem(QString());
-        class_2->addItem(QString());
-        class_2->setObjectName(QStringLiteral("class_2"));
-        class_2->setGeometry(QRect(80, 160, 111, 22));
+        choice = new QComboBox(stuclass);
+        choice->addItem(QString());
+        choice->addItem(QString());
+        choice->setObjectName(QStringLiteral("choice"));
+        choice->setGeometry(QRect(80, 160, 111, 22));
         back = new QPushButton(stuclass);
         back->setObjectName(QStringLiteral("back"));
         back->setGeometry(QRect(600, 30, 93, 28));
@@ -93,8 +93,8 @@ public:
         label->setText(QApplication::translate("stuclass", "\346\210\220\347\273\251\346\237\245\350\257\242", nullptr));
         label_2->setText(QApplication::translate("stuclass", "\345\255\246\345\217\267", nullptr));
         label_3->setText(QApplication::translate("stuclass", "\350\257\276\347\250\213", nullptr));
-        class_2->setItemText(0, QApplication::translate("stuclass", "...", nullptr));
-        class_2->setItemText(1, QApplication::translate("stuclass", "ALL", nullptr));
+        choice->setItemText(0, QApplication::translate("stuclass", "...", nullptr));
+        choice->setItemText(1, QApplication::translate("stuclass", "ALL", nullptr));
 
         back->setText(QApplication::translate("stuclass", "\350\277\224\345\233\236", nullptr));
         query->setText(QApplication::translate("stuclass", "\345\274\200\345\220\257\n"

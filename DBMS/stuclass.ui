@@ -84,7 +84,7 @@
     <string>课程</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="class_2">
+  <widget class="QComboBox" name="choice">
    <property name="geometry">
     <rect>
      <x>80</x>

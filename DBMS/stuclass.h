@@ -21,6 +21,7 @@ public:
 private slots:
 	void classshow();
 	void on_back_clicked();
+	void on_query_clicked();
 
 signals:
 	void classback();
