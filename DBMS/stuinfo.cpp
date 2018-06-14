@@ -12,6 +12,7 @@ stuinfo::stuinfo(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::stuinfo)
 {
+	this->setWindowIcon(QIcon(":/image/ball.ico"));
     ui->setupUi(this);
 }
 

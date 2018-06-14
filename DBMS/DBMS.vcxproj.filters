@@ -87,6 +87,15 @@
     <ClCompile Include="stuinfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="stuclass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_stuclass.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_stuclass.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="debug\moc_predefs.h.cbt">
@@ -110,6 +119,12 @@
     <CustomBuild Include="stuinfo.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="stuclass.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="stuclass.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="mainwindow.ui">
@@ -131,6 +146,24 @@
     <Image Include="image\dbicon.ico">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="image\administration_48px_26809_easyicon.net.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="image\Courses_128px_1185938_easyicon.net.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="image\curriculum_128px_1206171_easyicon.net.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="image\infomation_128px_526982_easyicon.net.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="image\load.gif">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="image\棒棒糖.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
@@ -140,6 +173,9 @@
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_stuinfo.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_stuclass.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>

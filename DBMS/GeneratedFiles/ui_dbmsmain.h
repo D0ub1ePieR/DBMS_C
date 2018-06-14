@@ -74,7 +74,7 @@ public:
         label_4->setStyleSheet(QStringLiteral("image: url(:/image/administration_48px_26809_easyicon.net.ico);"));
         label_5 = new QLabel(dbmsmain);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(230, 110, 271, 71));
+        label_5->setGeometry(QRect(180, 110, 321, 71));
         label_5->setStyleSheet(QString::fromUtf8("\n"
 "font: 48pt \"\345\215\216\346\226\207\350\241\214\346\245\267\";"));
 
@@ -94,7 +94,7 @@ public:
         label_2->setText(QString());
         label_3->setText(QString());
         label_4->setText(QString());
-        label_5->setText(QApplication::translate("dbmsmain", "Welcome", nullptr));
+        label_5->setText(QApplication::translate("dbmsmain", "\345\201\207\350\243\205\346\234\211\345\233\276", nullptr));
     } // retranslateUi
 
 };

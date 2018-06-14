@@ -27,17 +27,20 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     dbmsmain.cpp \
-    stuinfo.cpp
+    stuinfo.cpp \
+    stuclass.cpp
 
 HEADERS += \
         mainwindow.h \
     dbmsmain.h \
-    stuinfo.h
+    stuinfo.h \
+    stuclass.h
 
 FORMS += \
     mainwindow.ui \
     dbmsmain.ui \
-    stuinfo.ui
+    stuinfo.ui \
+    stuclass.ui
 
 RESOURCES += \
     imagefile.qrc

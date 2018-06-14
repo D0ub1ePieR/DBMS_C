@@ -5,6 +5,7 @@ dbmsmain::dbmsmain(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::dbmsmain)
 {
+	this->setWindowIcon(QIcon(":/image/ball.ico"));
     ui->setupUi(this);
 }
 
@@ -19,6 +20,19 @@ void dbmsmain::on_info_clicked()
 {
 	this->close();
 	emit goto_stuinfo();
+}
+
+//跳转至学生课程查询
+void dbmsmain::on_grade_clicked()
+{
+	this->close();
+	emit goto_stuclass();
+}
+
+//接收学生课程查询返回额信号
+void dbmsmain::get_grade()
+{
+	this->show();
 }
 
 //接收学生信息查询返回的信号
