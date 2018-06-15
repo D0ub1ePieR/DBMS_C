@@ -26,11 +26,14 @@ private slots:
 
 signals:
 	void chooseback();
+	void refresh(string number);
 
 private:
     Ui::choose *ui;
 	string number;
 	MYSQL db;
+	string cn[1024],cnumber[1024];
+	int cnn;
 };
 
 #endif // CHOOSE_H

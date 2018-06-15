@@ -3,6 +3,9 @@
 #include <string>
 #include "mysql.h"
 #include <iostream>
+#include <QMessageBox>
+#include <QString>
+#include <QDebug>
 using namespace std;
 
 choose::choose(QWidget *parent) :
@@ -19,6 +22,8 @@ void choose::chooseshow(string number)
 	this->show();
 	this->number = number;
 	ui->nowclass->setUpdatesEnabled(true);
+	ui->nowclass->clear();
+	ui->chooseclass->clear();
 	//初始化数据库标识符
 	if (mysql_init(&db) != NULL)
 		cout << "success1" << endl;
@@ -37,6 +42,47 @@ void choose::chooseshow(string number)
 		cout << "mysql_options() failed" << endl;
 		return;
 	}
+
+	MYSQL_RES *res = NULL;
+	MYSQL_ROW row = NULL;
+	cnn = 0;
+	string str = "select cname from sc,class where sc.cnumber=class.cnumber and sc.snumber=\"" + number + "\"";
+	if (!mysql_query(&db,str.c_str()))
+	{
+		res = mysql_store_result(&db);
+
+		row = mysql_fetch_row(res);
+		while (row != NULL)
+		{
+			ui->nowclass->addItem(row[0]);
+			row = mysql_fetch_row(res);
+		}
+
+	}
+	else
+	{
+		QMessageBox::critical(0, "warning", QStringLiteral("查询失败！"), QMessageBox::Cancel | QMessageBox::Default, 0);
+		exit(0);
+	}
+
+	str = "select cname,cnumber from class where not exists (select * from sc where class.cnumber=sc.cnumber and sc.snumber=\"" + number + "\")";
+	if (!mysql_query(&db, str.c_str()))
+	{
+		res = mysql_store_result(&db);
+		row = mysql_fetch_row(res);
+		while (row != NULL)
+		{
+			ui->chooseclass->addItem(row[0]);
+			cn[cnn] = row[0];
+			cnumber[cnn++] = row[1];
+			row = mysql_fetch_row(res);
+		}
+	}
+	else
+	{
+		QMessageBox::critical(0, "warning", QStringLiteral("查询失败！"), QMessageBox::Cancel | QMessageBox::Default, 0);
+		exit(0);
+	}
 }
 
 //返回主页面
@@ -48,7 +94,47 @@ void choose::on_back_clicked()
 
 void choose::on_select_clicked()
 {
-	;
+	MYSQL_RES *res = NULL;
+	MYSQL_ROW row = NULL;
+
+	if (ui->chooseclass->currentRow()==-1)
+		QMessageBox::critical(0, "warning", QStringLiteral("请选择你要选择的课程!"), QMessageBox::Cancel | QMessageBox::Default, 0);
+	else
+	{
+		string classname = cn[ui->chooseclass->currentRow()];
+		string str = "select * from sc where sc.snumber=\"" + this->number + "\" and sc.cnumber=(select cprenum from class where class.cname=\"" + classname + "\")";
+		qDebug() << QString::fromStdString(str) << endl;
+		if (!mysql_query(&db, str.c_str()))
+		{
+			res = mysql_store_result(&db);
+			row = mysql_fetch_row(res);
+			if (row == NULL)
+			{
+				QMessageBox::critical(0, "warning", QStringLiteral("请选择先修课程！"), QMessageBox::Cancel | QMessageBox::Default, 0);
+			}
+			else
+			{
+				//qDebug() << row[0] << row[1] << row[2] << endl;
+				str = "insert into sc values (\"" + this->number + "\",\"" + cnumber[ui->chooseclass->currentRow()] + "\",NULL)";
+				if (!mysql_query(&db, str.c_str()))
+				{
+					QMessageBox::critical(0, "warning", QStringLiteral("选课成功！"), QMessageBox::Cancel | QMessageBox::Default, 0);
+					emit refresh(this->number);
+				}
+				else
+				{
+					QMessageBox::critical(0, "warning", QStringLiteral("选课失败！"), QMessageBox::Cancel | QMessageBox::Default, 0);
+				}
+			}
+		}
+		else
+		{
+			QMessageBox::critical(0, "warning", QStringLiteral("查询失败！"), QMessageBox::Cancel | QMessageBox::Default, 0);
+			exit(0);
+		}
+		//qDebug() << QString::fromStdString(str) << endl;
+	}
+	//qDebug() << ui->chooseclass->currentRow();
 }
 
 choose::~choose()

@@ -14,7 +14,7 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QListView>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
@@ -25,8 +25,8 @@ public:
     QPushButton *back;
     QFrame *line;
     QLabel *label;
-    QListView *nowclass;
-    QListView *chooseclass;
+    QListWidget *nowclass;
+    QListWidget *chooseclass;
     QLabel *label_2;
     QLabel *label_3;
     QLabel *label_4;
@@ -50,10 +50,10 @@ public:
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(30, 20, 121, 41));
         label->setStyleSheet(QString::fromUtf8("font: 14pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";"));
-        nowclass = new QListView(choose);
+        nowclass = new QListWidget(choose);
         nowclass->setObjectName(QStringLiteral("nowclass"));
         nowclass->setGeometry(QRect(50, 110, 191, 311));
-        chooseclass = new QListView(choose);
+        chooseclass = new QListWidget(choose);
         chooseclass->setObjectName(QStringLiteral("chooseclass"));
         chooseclass->setGeometry(QRect(440, 110, 191, 311));
         label_2 = new QLabel(choose);

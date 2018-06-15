@@ -55,7 +55,7 @@
     <string>选课系统</string>
    </property>
   </widget>
-  <widget class="QListView" name="nowclass">
+  <widget class="QListWidget" name="nowclass">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -65,7 +65,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QListView" name="chooseclass">
+  <widget class="QListWidget" name="chooseclass">
    <property name="geometry">
     <rect>
      <x>440</x>
