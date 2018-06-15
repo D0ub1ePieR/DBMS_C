@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <mysql.h>
 using namespace std;
 #include <QDialog>
 
@@ -27,6 +28,7 @@ signals:
 
 private:
     Ui::inputnum *ui;
+	MYSQL db;
 };
 
 #endif // INPUTNUM_H
