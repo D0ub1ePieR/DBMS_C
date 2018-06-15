@@ -30,7 +30,8 @@ SOURCES += \
     stuinfo.cpp \
     stuclass.cpp \
     choose.cpp \
-    inputnum.cpp
+    inputnum.cpp \
+    config.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,7 +39,8 @@ HEADERS += \
     stuinfo.h \
     stuclass.h \
     choose.h \
-    inputnum.h
+    inputnum.h \
+    config.h
 
 FORMS += \
     mainwindow.ui \
@@ -46,7 +48,8 @@ FORMS += \
     stuinfo.ui \
     stuclass.ui \
     choose.ui \
-    inputnum.ui
+    inputnum.ui \
+    config.ui
 
 RESOURCES += \
     imagefile.qrc

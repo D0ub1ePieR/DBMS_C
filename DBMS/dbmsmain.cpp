@@ -36,6 +36,13 @@ void dbmsmain::on_choose_clicked()
 	emit goto_stuchoose();
 }
 
+//跳转至管理页面
+void dbmsmain::on_config_clicked()
+{
+	this->close();
+	emit goto_config();
+}
+
 //接收选课返回信号
 void dbmsmain::get_choose()
 {
