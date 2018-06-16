@@ -39,6 +39,21 @@ void config::configshow()
 	}
 }
 
+//返回主页面
+void config::on_back_clicked()
+{
+	this->close();
+	emit configback();
+}
+
+//添加学生
+void config::on_add_clicked()
+{
+	int inputflag;
+	MYSQL_RES *res = NULL;
+	MYSQL_ROW row = NULL;
+}
+
 config::~config()
 {
     delete ui;

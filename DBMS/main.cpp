@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 	QObject::connect(&info, SIGNAL(infoback()), &dm, SLOT(get_info()));		//学生信息返回跳转
 	QObject::connect(&cl,SIGNAL(classback()),&dm, SLOT(get_grade()));		//学生课程返回跳转
 	QObject::connect(&ch, SIGNAL(chooseback()), &dm, SLOT(get_choose()));	//选课返回跳转
+	QObject::connect(&cf, SIGNAL(configback()), &dm, SLOT(get_config()));	//管理系统返回跳转
 
     return a.exec();
 }

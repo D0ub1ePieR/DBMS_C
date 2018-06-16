@@ -49,7 +49,7 @@ void dbmsmain::get_choose()
 	this->show();
 }
 
-//接收学生课程查询返回额信号
+//接收学生课程查询返回的信号
 void dbmsmain::get_grade()
 {
 	this->show();
@@ -57,6 +57,12 @@ void dbmsmain::get_grade()
 
 //接收学生信息查询返回的信号
 void dbmsmain::get_info()
+{
+	this->show();
+}
+
+//接收管理系统返回的信号
+void dbmsmain::get_config()
 {
 	this->show();
 }
