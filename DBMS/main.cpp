@@ -5,6 +5,7 @@
 #include "choose.h"
 #include "inputnum.h"
 #include "config.h"
+#include "checklog.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
@@ -16,6 +17,7 @@ int main(int argc, char *argv[])
 	stuclass cl;
 	inputnum in;
 	choose ch;
+	checklog log;
 	config cf;
     w.show();
 
@@ -25,7 +27,8 @@ int main(int argc, char *argv[])
 	QObject::connect(&dm, SIGNAL(goto_stuchoose()), &in, SLOT(getmain()));	//主页面跳转至选课页面
 	QObject::connect(&in, SIGNAL(sendnum(string)), &ch, SLOT(chooseshow(string)));
 	QObject::connect(&ch, SIGNAL(refresh(string)), &ch, SLOT(chooseshow(string)));		//选课系统自动刷新
-	QObject::connect(&dm, SIGNAL(goto_config()), &cf, SLOT(configshow()));	//主页面跳转至管理系统
+	QObject::connect(&dm, SIGNAL(goto_config()), &log, SLOT(login()));
+	QObject::connect(&log, SIGNAL(loginsuccess()), &cf, SLOT(configshow()));	//主页面跳转至管理系统
 	QObject::connect(&info, SIGNAL(infoback()), &dm, SLOT(get_info()));		//学生信息返回跳转
 	QObject::connect(&cl,SIGNAL(classback()),&dm, SLOT(get_grade()));		//学生课程返回跳转
 	QObject::connect(&ch, SIGNAL(chooseback()), &dm, SLOT(get_choose()));	//选课返回跳转

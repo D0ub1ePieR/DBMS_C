@@ -12,7 +12,7 @@ config::config(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::config)
 {
-	this->setWindowIcon(QIcon(":/image/ball.ico"));
+	//this->setWindowIcon(QIcon(":/image/ball.ico"));
     ui->setupUi(this);
 }
 
