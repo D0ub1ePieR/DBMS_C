@@ -26,9 +26,12 @@ private slots:
 	void configshow();
 	void on_back_clicked();
 	void on_add_clicked();
+	void on_fix_clicked();
+	void on_delete_clicked();
 
 signals:
 	void configback();
+	void configrefresh();
 
 private:
     Ui::config *ui;

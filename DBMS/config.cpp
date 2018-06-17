@@ -31,16 +31,17 @@ void config::configshow()
 	else
 		QMessageBox::critical(0, "warning", QStringLiteral("无对应数据库!请核对数据库名!"), QMessageBox::Cancel | QMessageBox::Default, 0);
 	//设置文字编码 并没有什么卵用
-	if (!mysql_options(&db, MYSQL_SET_CHARSET_NAME, "utf8"))
+	/*if (!mysql_options(&db, MYSQL_SET_CHARSET_NAME, "utf8"))
 		cout << "mysql_options() succeed" << endl;
 	else
 	{
 		cout << "mysql_options() failed" << endl;
 		return;
-	}
+	}*/
 
 	qDebug() << "init success" << endl;
 
+	//显示所有信息
 	MYSQL_RES *res = NULL;
 	MYSQL_ROW row = NULL;
 	unsigned int fieldcount;
@@ -52,11 +53,11 @@ void config::configshow()
 		fieldcount = mysql_num_fields(res);
 		ui->showtable->setColumnCount(fieldcount);		//设置表格列数
 		ui->showtable->setRowCount(1);		//设置表格行数
-		for (i = 0; i <= fieldcount; i++)
+		for (i = 0; i < fieldcount; i++)
 		{
 			//设置表头
-			ui->showtable->setItem(0, i, new QTableWidgetItem(mysql_fetch_field_direct(res, i)->name));
-			//ui->showtable->item(0, i)->setTextAlignment(Qt::AlignCenter);
+			ui->showtable->setItem(0, i,new QTableWidgetItem(mysql_fetch_field_direct(res, i)->name));
+			ui->showtable->item(0, i)->setTextAlignment(Qt::AlignCenter);
 		}
 		row = mysql_fetch_row(res);
 		rn = 1;
@@ -152,6 +153,9 @@ void config::on_add_clicked()
 			if (!mysql_query(&db, str.c_str()))
 			{
 				QMessageBox::critical(0, "warning", QStringLiteral("添加成功!"), QMessageBox::Cancel | QMessageBox::Default, 0);
+				this->close();
+				mysql_close(&db);
+				emit configrefresh();
 			}
 			else
 			{
@@ -165,6 +169,34 @@ void config::on_add_clicked()
 		QMessageBox::critical(0, "warning", QStringLiteral("查询失败!"), QMessageBox::Cancel | QMessageBox::Default, 0);
 		return;
 	}
+}
+
+//修改学生信息
+void config::on_fix_clicked()
+{
+	MYSQL_RES *res = NULL;
+	MYSQL_ROW row = NULL;
+	qDebug() << ui->showtable->currentRow() << endl;
+	int cur_row;
+	string number, name, sex, age, dept;
+	cur_row = ui->showtable->currentRow();
+	if (cur_row==0)
+	{
+		QMessageBox::critical(0, "warning", QStringLiteral("请选择合格的行数!"), QMessageBox::Cancel | QMessageBox::Default, 0);
+		return;
+	}
+	number = ui->showtable->item(cur_row, 0)->text().toStdString();
+	name = ui->showtable->item(cur_row, 1)->text().toStdString();
+	sex = ui->showtable->item(cur_row, 2)->text().toStdString();
+	age = ui->showtable->item(cur_row, 3)->text().toStdString();
+	dept = ui->showtable->item(cur_row, 4)->text().toStdString();
+	
+}
+
+//删除学生信息
+void config::on_delete_clicked()
+{
+	;
 }
 
 config::~config()

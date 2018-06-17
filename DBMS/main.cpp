@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
 	QObject::connect(&dm, SIGNAL(goto_stuchoose()), &in, SLOT(getmain()));	//主页面跳转至选课页面
 	QObject::connect(&in, SIGNAL(sendnum(string)), &ch, SLOT(chooseshow(string)));
 	QObject::connect(&ch, SIGNAL(refresh(string)), &ch, SLOT(chooseshow(string)));		//选课系统自动刷新
+	QObject::connect(&cf, SIGNAL(configrefresh()), &cf, SLOT(configshow()));
 	QObject::connect(&dm, SIGNAL(goto_config()), &log, SLOT(login()));
 	QObject::connect(&log, SIGNAL(loginsuccess()), &cf, SLOT(configshow()));	//主页面跳转至管理系统
 	QObject::connect(&info, SIGNAL(infoback()), &dm, SLOT(get_info()));		//学生信息返回跳转
