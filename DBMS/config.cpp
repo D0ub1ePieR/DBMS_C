@@ -4,6 +4,7 @@
 #include "mysql.h"
 #include <iostream>
 #include <QMessageBox>
+#include <QStandardItemModel>
 #include <QString>
 #include <QDebug>
 using namespace std;
@@ -12,7 +13,7 @@ config::config(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::config)
 {
-	//this->setWindowIcon(QIcon(":/image/ball.ico"));
+	this->setWindowIcon(QIcon(":/image/ball.ico"));
     ui->setupUi(this);
 }
 
@@ -35,6 +36,47 @@ void config::configshow()
 	else
 	{
 		cout << "mysql_options() failed" << endl;
+		return;
+	}
+
+	qDebug() << "init success" << endl;
+
+	MYSQL_RES *res = NULL;
+	MYSQL_ROW row = NULL;
+	unsigned int fieldcount;
+	int i,rn;
+	string str = "select * from student";
+	if (!mysql_query(&db, str.c_str()))
+	{
+		res = mysql_store_result(&db);
+		fieldcount = mysql_num_fields(res);
+		ui->showtable->setColumnCount(fieldcount);		//设置表格列数
+		ui->showtable->setRowCount(1);		//设置表格行数
+		for (i = 0; i <= fieldcount; i++)
+		{
+			//设置表头
+			ui->showtable->setItem(0, i, new QTableWidgetItem(mysql_fetch_field_direct(res, i)->name));
+			//ui->showtable->item(0, i)->setTextAlignment(Qt::AlignCenter);
+		}
+		row = mysql_fetch_row(res);
+		rn = 1;
+		while (row != NULL)
+		{
+			ui->showtable->setRowCount(rn + 1);		//更新行数
+			for (i = 0; i < fieldcount; i++)
+			{
+				//设置文字
+				ui->showtable->setItem(rn, i, new QTableWidgetItem(row[i]));
+				//设置字符位置 居中
+				ui->showtable->item(rn, i)->setTextAlignment(Qt::AlignCenter);
+			}
+			rn++;
+			row = mysql_fetch_row(res);
+		}
+	}
+	else
+	{
+		QMessageBox::critical(0, "warning", QStringLiteral("查询失败!"), QMessageBox::Cancel | QMessageBox::Default, 0);
 		return;
 	}
 }
@@ -113,14 +155,14 @@ void config::on_add_clicked()
 			}
 			else
 			{
-				QMessageBox::critical(0, "warning", QStringLiteral("查询失败2!"), QMessageBox::Cancel | QMessageBox::Default, 0);
+				QMessageBox::critical(0, "warning", QStringLiteral("查询失败!"), QMessageBox::Cancel | QMessageBox::Default, 0);
 				return;
 			}
 		}
 	}
 	else
 	{
-		QMessageBox::critical(0, "warning", QStringLiteral("查询失败1!"), QMessageBox::Cancel | QMessageBox::Default, 0);
+		QMessageBox::critical(0, "warning", QStringLiteral("查询失败!"), QMessageBox::Cancel | QMessageBox::Default, 0);
 		return;
 	}
 }

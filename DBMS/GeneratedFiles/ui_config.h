@@ -14,9 +14,11 @@
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QFrame>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QTableWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -40,6 +42,10 @@ public:
     QCheckBox *man;
     QPushButton *add;
     QFrame *line_2;
+    QLabel *label_8;
+    QTableWidget *showtable;
+    QPushButton *fix;
+    QPushButton *delete_2;
 
     void setupUi(QDialog *config)
     {
@@ -104,6 +110,19 @@ public:
         line_2->setGeometry(QRect(0, 220, 741, 16));
         line_2->setFrameShape(QFrame::HLine);
         line_2->setFrameShadow(QFrame::Sunken);
+        label_8 = new QLabel(config);
+        label_8->setObjectName(QStringLiteral("label_8"));
+        label_8->setGeometry(QRect(20, 250, 171, 31));
+        label_8->setStyleSheet(QString::fromUtf8("font: 25 12pt \"\345\276\256\350\275\257\351\233\205\351\273\221 Light\";"));
+        showtable = new QTableWidget(config);
+        showtable->setObjectName(QStringLiteral("showtable"));
+        showtable->setGeometry(QRect(40, 300, 651, 261));
+        fix = new QPushButton(config);
+        fix->setObjectName(QStringLiteral("fix"));
+        fix->setGeometry(QRect(250, 250, 93, 28));
+        delete_2 = new QPushButton(config);
+        delete_2->setObjectName(QStringLiteral("delete_2"));
+        delete_2->setGeometry(QRect(410, 250, 93, 28));
 
         retranslateUi(config);
 
@@ -124,6 +143,9 @@ public:
         label_7->setText(QApplication::translate("config", "\346\200\247\345\210\253", nullptr));
         man->setText(QApplication::translate("config", "\347\224\267", nullptr));
         add->setText(QApplication::translate("config", "\346\267\273\345\212\240", nullptr));
+        label_8->setText(QApplication::translate("config", "\344\277\256\346\224\271\345\210\240\351\231\244\345\255\246\347\224\237\344\277\241\346\201\257", nullptr));
+        fix->setText(QApplication::translate("config", "\344\277\256\346\224\271\351\200\211\344\270\255\350\241\214", nullptr));
+        delete_2->setText(QApplication::translate("config", "\345\210\240\351\231\244\351\200\211\344\270\255\350\241\214", nullptr));
     } // retranslateUi
 
 };
