@@ -45,7 +45,7 @@ public:
     QLabel *label_8;
     QTableWidget *showtable;
     QPushButton *fix;
-    QPushButton *delete_2;
+    QPushButton *del;
 
     void setupUi(QDialog *config)
     {
@@ -120,9 +120,9 @@ public:
         fix = new QPushButton(config);
         fix->setObjectName(QStringLiteral("fix"));
         fix->setGeometry(QRect(250, 250, 93, 28));
-        delete_2 = new QPushButton(config);
-        delete_2->setObjectName(QStringLiteral("delete_2"));
-        delete_2->setGeometry(QRect(410, 250, 93, 28));
+        del = new QPushButton(config);
+        del->setObjectName(QStringLiteral("del"));
+        del->setGeometry(QRect(410, 250, 93, 28));
 
         retranslateUi(config);
 
@@ -145,7 +145,7 @@ public:
         add->setText(QApplication::translate("config", "\346\267\273\345\212\240", nullptr));
         label_8->setText(QApplication::translate("config", "\344\277\256\346\224\271\345\210\240\351\231\244\345\255\246\347\224\237\344\277\241\346\201\257", nullptr));
         fix->setText(QApplication::translate("config", "\344\277\256\346\224\271\351\200\211\344\270\255\350\241\214", nullptr));
-        delete_2->setText(QApplication::translate("config", "\345\210\240\351\231\244\351\200\211\344\270\255\350\241\214", nullptr));
+        del->setText(QApplication::translate("config", "\345\210\240\351\231\244\351\200\211\344\270\255\350\241\214", nullptr));
     } // retranslateUi
 
 };

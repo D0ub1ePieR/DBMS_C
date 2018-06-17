@@ -190,13 +190,46 @@ void config::on_fix_clicked()
 	sex = ui->showtable->item(cur_row, 2)->text().toStdString();
 	age = ui->showtable->item(cur_row, 3)->text().toStdString();
 	dept = ui->showtable->item(cur_row, 4)->text().toStdString();
-	
+	string str = "update student set sname=\"" + name + "\",ssex=\"" + sex + "\",sage=\"" + age + "\",sdept=\"" + dept + "\" where snumber=\"" + number + "\"";
+	if (!mysql_query(&db, str.c_str()))
+	{
+		QMessageBox::critical(0, "warning", QStringLiteral("修改成功!"), QMessageBox::Cancel | QMessageBox::Default, 0);
+		this->close();
+		emit configrefresh();
+	}
+	else
+	{
+		QMessageBox::critical(0, "warning", QStringLiteral("修改失败!"), QMessageBox::Cancel | QMessageBox::Default, 0);
+		return;
+	}
 }
 
 //删除学生信息
-void config::on_delete_clicked()
+void config::on_del_clicked()
 {
-	;
+	MYSQL_RES *res = NULL;
+	MYSQL_ROW row = NULL;
+	qDebug() << ui->showtable->currentRow() << endl;
+	int cur_row;
+	cur_row = ui->showtable->currentRow();
+	if (cur_row == 0)
+	{
+		QMessageBox::critical(0, "warning", QStringLiteral("请选择合格的行数!"), QMessageBox::Cancel | QMessageBox::Default, 0);
+		return;
+	}
+	string number = ui->showtable->item(cur_row, 0)->text().toStdString();
+	string str = "delete from student where snumber=\"" + number + "\"";
+	if (!mysql_query(&db, str.c_str()))
+	{
+		QMessageBox::critical(0, "warning", QStringLiteral("删除成功!"), QMessageBox::Cancel | QMessageBox::Default, 0);
+		this->close();
+		emit configrefresh();
+	}
+	else
+	{
+		QMessageBox::critical(0, "warning", QStringLiteral("删除失败!"), QMessageBox::Cancel | QMessageBox::Default, 0);
+		return;
+	}
 }
 
 config::~config()

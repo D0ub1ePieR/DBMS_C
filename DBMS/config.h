@@ -27,7 +27,7 @@ private slots:
 	void on_back_clicked();
 	void on_add_clicked();
 	void on_fix_clicked();
-	void on_delete_clicked();
+	void on_del_clicked();
 
 signals:
 	void configback();

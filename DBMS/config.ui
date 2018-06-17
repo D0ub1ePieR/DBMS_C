@@ -270,7 +270,7 @@
     <string>修改选中行</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="delete_2">
+  <widget class="QPushButton" name="del">
    <property name="geometry">
     <rect>
      <x>410</x>
@@ -284,8 +284,6 @@
    </property>
   </widget>
  </widget>
- <resources>
-  <include location="imagefile.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
