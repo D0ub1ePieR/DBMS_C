@@ -218,7 +218,9 @@ void config::on_del_clicked()
 		return;
 	}
 	string number = ui->showtable->item(cur_row, 0)->text().toStdString();
-	string str = "delete from student where snumber=\"" + number + "\"";
+	string str = "delete from sc where snumber=\"" + number + "\"";
+	mysql_query(&db, str.c_str());
+	str = "delete from student where snumber=\"" + number + "\"";
 	if (!mysql_query(&db, str.c_str()))
 	{
 		QMessageBox::critical(0, "warning", QStringLiteral("É¾³ý³É¹¦!"), QMessageBox::Cancel | QMessageBox::Default, 0);

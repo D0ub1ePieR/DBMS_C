@@ -42,7 +42,6 @@ void inputnum::on_enter_clicked()
 {
 	if (ui->number->text() != NULL)
 	{
-		this->close();
 		MYSQL_RES *res = NULL;
 		MYSQL_ROW row = NULL;
 		
@@ -52,7 +51,10 @@ void inputnum::on_enter_clicked()
 			res = mysql_store_result(&db);
 			row = mysql_fetch_row(res);
 			if (row != NULL)
+			{
+				this->close();
 				emit sendnum(ui->number->text().toStdString());
+			}
 			else
 				QMessageBox::critical(0, "warning", QStringLiteral("ÎÞ´ËÑ§ºÅ£¡"), QMessageBox::Cancel | QMessageBox::Default, 0);
 		}
