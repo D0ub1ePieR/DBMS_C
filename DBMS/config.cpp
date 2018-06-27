@@ -159,7 +159,7 @@ void config::on_add_clicked()
 			}
 			else
 			{
-				QMessageBox::critical(0, "warning", QStringLiteral("≤È—Ø ß∞‹!"), QMessageBox::Cancel | QMessageBox::Default, 0);
+				QMessageBox::critical(0, "warning", QStringLiteral("ÃÌº” ß∞‹!"), QMessageBox::Cancel | QMessageBox::Default, 0);
 				return;
 			}
 		}
