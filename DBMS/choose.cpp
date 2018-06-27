@@ -96,6 +96,7 @@ void choose::on_select_clicked()
 {
 	MYSQL_RES *res = NULL;
 	MYSQL_ROW row = NULL;
+	int flag;
 
 	if (ui->chooseclass->currentRow()==-1)
 		QMessageBox::critical(0, "warning", QStringLiteral("请选择你要选择的课程!"), QMessageBox::Cancel | QMessageBox::Default, 0);
@@ -106,13 +107,19 @@ void choose::on_select_clicked()
 		qDebug() << QString::fromStdString(str) << endl;
 		if (!mysql_query(&db, str.c_str()))
 		{
+			flag = 1;
 			res = mysql_store_result(&db);
 			row = mysql_fetch_row(res);
 			if (row == NULL)
 			{
-				QMessageBox::critical(0, "warning", QStringLiteral("请选择先修课程！"), QMessageBox::Cancel | QMessageBox::Default, 0);
+				str = "select * from class ac where ac.cnumber=(select cprenum from class bc where bc.cname=\"" + classname + "\")";
+				mysql_query(&db, str.c_str());
+				res = mysql_store_result(&db);
+				row = mysql_fetch_row(res);
+				if (row != NULL)
+					flag = 0;
 			}
-			else
+			if (flag)
 			{
 				//qDebug() << row[0] << row[1] << row[2] << endl;
 				str = "insert into sc values (\"" + this->number + "\",\"" + cnumber[ui->chooseclass->currentRow()] + "\",NULL)";
@@ -125,6 +132,10 @@ void choose::on_select_clicked()
 				{
 					QMessageBox::critical(0, "warning", QStringLiteral("选课失败！"), QMessageBox::Cancel | QMessageBox::Default, 0);
 				}
+			}
+			else
+			{
+				QMessageBox::critical(0, "warning", QStringLiteral("请选择先修课程！"), QMessageBox::Cancel | QMessageBox::Default, 0);
 			}
 		}
 		else
