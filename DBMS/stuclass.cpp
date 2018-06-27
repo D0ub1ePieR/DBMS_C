@@ -39,7 +39,7 @@ void stuclass::classshow()
 	}
 	MYSQL_RES *res = NULL;
 	MYSQL_ROW row = NULL;
-	string str = "select cname from class,sc where class.cnumber=sc.cnumber group by cname";
+	string str = "select distinct cname from class,sc where class.cnumber=sc.cnumber group by cname";
 	if (!mysql_query(&db, str.c_str()))
 	{
 		res = mysql_store_result(&db);
